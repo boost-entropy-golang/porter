@@ -160,6 +160,7 @@ export default class CreateEnvGroup extends Component<PropsType, StateType> {
             configuration.
           </Helper>
           <KeyValueArray
+            envLoader={true}
             namespace={this.state.selectedNamespace}
             values={this.state.envVariables}
             setValues={(x: any) => this.setState({ envVariables: x })}

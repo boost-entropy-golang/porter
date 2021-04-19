@@ -162,7 +162,7 @@ export default class KeyValueArray extends Component<PropsType, StateType> {
                     this.setState({ showEnvModal: !this.state.showEnvModal })
                   }
                 >
-                  <img src={sliders} /> Load from Env Group
+                  <img src={sliders} /> Use Local File or Env Group
                 </LoadButton>
               )}
             </InputWrapper>

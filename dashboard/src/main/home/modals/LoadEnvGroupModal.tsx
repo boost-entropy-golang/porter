@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import close from "assets/close.png";
 import sliders from "assets/sliders.svg";
+import fileUpload from "assets/file-upload.svg";
 
 import api from "shared/api";
 import { Context } from "shared/Context";
@@ -104,9 +105,12 @@ export default class LoadEnvGroupModal extends Component<PropsType, StateType> {
           <CloseButtonImg src={close} />
         </CloseButton>
 
-        <ModalTitle>Load from Environment Group</ModalTitle>
+        <ModalTitle>Load Environment Variables</ModalTitle>
+        <UploadButton>
+          <img src={fileUpload} /> Upload *.env File
+        </UploadButton>
         <Subtitle>
-          Select an existing group of environment variables in this namespace (
+          Upload a local file or select an env group in this namespace (
           {this.props.namespace}).
         </Subtitle>
 
@@ -128,6 +132,31 @@ export default class LoadEnvGroupModal extends Component<PropsType, StateType> {
 }
 
 LoadEnvGroupModal.contextType = Context;
+
+const UploadButton = styled.div`
+  display: flex;
+  width: 100%;
+  font-size: 13px;
+  color: #ffffff;
+  user-select: none;
+  align-items: center;
+  padding: 10px 0px;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #616FEEcc;
+  :hover {
+    background: #505edddd;
+  }
+
+  > img,
+  i {
+    width: 16px;
+    height: 18px;
+    margin-left: 12px;
+    margin-right: 12px;
+    font-size: 20px;
+  }
+`;
 
 const Placeholder = styled.div`
   width: 100%;
