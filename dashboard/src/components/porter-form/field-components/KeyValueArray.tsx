@@ -324,6 +324,7 @@ const KeyValueArray: React.FC<Props> = (props) => {
                   disabled
                   type={"password"}
                   spellCheck={false}
+                  value={value}
                 />
               ) : (
                 <MultiLineInput
@@ -536,7 +537,7 @@ export const getMetadata: GetMetadataFunction<KeyValueArrayMetadata> = (
   state: KeyValueArrayFieldState
 ) => {
   // We don't need any metadata for other key-value-array fields yet so we return null for that variable
-  if (!props?.variable?.includes("env")) {
+  if (!state || !props?.variable?.includes("env")) {
     return {
       [props.variable]: null,
     };
