@@ -60,7 +60,10 @@ const RadioFilter: React.FC<Props> = (props) => {
                     return (
                       <OptionRow
                         isLast={i === options.length - 1}
-                        onClick={() => props.setSelected(option.value)}
+                        onClick={() => {
+                          props.setSelected(option.value);
+                          setExpanded(false);
+                        }}
                         key={i}
                         selected={props.selected === option.value}
                       >
@@ -208,8 +211,8 @@ const Relative = styled.div`
 
 const DropdownWrapper = styled.div<{ dropdownAlignRight?: boolean }>`
   position: absolute;
-  left: ${props => props.dropdownAlignRight ? "" : "0"};
-  right: ${props => props.dropdownAlignRight ? "0" : ""};
+  left: ${(props) => (props.dropdownAlignRight ? "" : "0")};
+  right: ${(props) => (props.dropdownAlignRight ? "0" : "")};
   z-index: 1;
   top: calc(100% + 5px);
 `;
